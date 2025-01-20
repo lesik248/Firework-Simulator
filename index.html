@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSim Fireworks Control Panel</title>
+  <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+  <h1>Firework Simulator</h1>
+  
+  <div class="content">
+    <div id="fireworks-display"></div>
+  </div>
+
+  <div class="control-panel">
+    <div class="background-container">
+      <label for="background-mode">Background:</label>
+      <select id="background-mode">
+        <option value="plain">Plain Black</option>
+        <option value="starry">Starry Night</option>
+        <option value="moonlit">Moonlit Sky</option>
+        <option value="custom">Custom Color</option>
+      </select>
+    </div>
+    <div class="background-container">
+      <label for="background-color">Background Color:</label>
+      <input type="color" id="background-color" value="#000000">
+    </div>
+    <div class="color-container">
+      <label for="color-mode">Color Mode:</label>
+      <select id="color-mode">
+        <option value="random">Random</option>
+        <option value="custom">Custom</option>
+      </select>
+    </div>
+    <div class="color-container">
+      <label for="firework-color">Custom Color:</label>
+      <input type="color" id="firework-color" value="#ff0000">
+    </div>
+    <div class="color-container">
+      <label for="pattern">Firework Pattern:</label>
+      <select id="pattern">
+        <option value="normal">Normal</option>
+        <option value="heart">Heart</option>
+        <option value="star">Star</option>
+      </select>
+    </div>
+    <div class="slider-container">
+      <label for="frequency">Launch Frequency:</label>
+      <input type="range" id="frequency" min="1" max="10" value="5">
+    </div>
+    <div class="slider-container">
+      <label for="size">Explosion Size:</label>
+      <input type="range" id="size" min="10" max="100" value="50">
+    </div>
+    <div class="slider-container">
+      <label for="particles">Particle Count:</label>
+      <input type="range" id="particles" min="20" max="200" value="100">
+    </div>
+    <div class="slider-container">
+      <label for="duration">Explosion Duration:</label>
+      <input type="range" id="duration" min="500" max="3000" value="1500">
+    </div>
+    <div id="instructions">Click anywhere in the display area to launch fireworks!</div>
+  </div>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>
