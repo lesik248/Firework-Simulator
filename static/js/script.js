@@ -12,9 +12,32 @@ const patternSelect = document.getElementById('pattern');
 function getPatternAngles(pattern, count) {
   switch (pattern) {
     case 'heart':
-      break;
+      return Array.from({
+        length: count
+      }, (_, i) => {
+        const t = i / count * Math.PI * 2;
+        const x = -16 * Math.pow(Math.sin(t), 3);
+        const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+        return {
+          angle: Math.atan2(y, x),
+          speed: Math.sqrt(x * x + y * y) / 16 * (0.7 + Math.random() * 0.6)
+        };
+      });
     case 'star':
-      break;
+      const points = 5;
+      return Array.from({
+        length: count
+      }, (_, i) => {
+        const spikeIndex = Math.floor(i / (count / points));
+        const baseAngle = spikeIndex * 2 * Math.PI / points - Math.PI / 2;
+        const angleVariation = (Math.random() - 0.5) * 0.5;
+        const angle = baseAngle + angleVariation;
+        const isSpikeTip = i % (count / points) < count / points * 0.2;
+        return {
+          angle: angle,
+          speed: isSpikeTip ? 1 : 0.3 + Math.random() * 0.3
+        };
+      });
     default:
       return Array.from({ length: count }, () => ({
         angle: Math.random() * Math.PI * 2,
